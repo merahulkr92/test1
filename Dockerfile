@@ -4,9 +4,6 @@ FROM openjdk:8
 # Refer to Maven build -> finalName
 ARG JAR_FILE=target/postgrs-demo.jar
 
-# Refer to Maven build -> finalName
-ADD target/postgres-demo.jar postgrs-demo.jar
-
 # cd /opt/app
 WORKDIR /opt/app
 
