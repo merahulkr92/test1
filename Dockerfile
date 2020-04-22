@@ -2,9 +2,15 @@
 FROM openjdk:8
 
 # Refer to Maven build -> finalName
+ARG JAR_FILE=target/postgrs-demo.jar
+
+# Refer to Maven build -> finalName
 ADD target/postgres-demo.jar postgrs-demo.jar
 
-EXPOSE 8085
+# cd /opt/app
+WORKDIR /opt/app
+
+COPY ${JAR_FILE} app.jar
 
 # java -jar /opt/app/app.jar
-ENTRYPOINT ["java","-jar","postgrs-demo.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
